@@ -1,0 +1,20 @@
+  
+# tex auxillary files
+*.log
+*.aux
+*.log
+*.synctex.gz
+*.out
+*.toc
+*.lof
+*.lot
+*.pdf
+*.bbl
+*.blg
+*.brf
+*.idx
+.vscode
+*.fdb_latexmake
+*.files
+*.ilg
+*.ind
