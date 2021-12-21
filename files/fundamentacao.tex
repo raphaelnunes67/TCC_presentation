@@ -82,7 +82,7 @@
     \begin{itemize}
         \item Em uma rede MQTT existem dois agentes principais: o \textit{\textbf{broker}} e os \textit{\textbf{clients}};
         \item O \textit{broker} é um servidor que centraliza as mensagens dos clientes e as encaminha para os clientes interessados;
-        \item É um dispositivo ou serviço que tenha capacidade de interagir com o \textit{broker} e trocar mensagens;
+        \item Um \textit{client} é um dispositivo ou serviço que tenha capacidade de interagir com o \textit{broker} e trocar mensagens;
 
     \end{itemize}
 
@@ -103,6 +103,7 @@
 
 \begin{frame}{Elementos Base}{O protocolo MQTT}
     \begin{itemize}
+        \item Está na mesma camada OSI que o \textbf{\textit{Hypertext Transfer Protocol}} - HTTP, porém a maior diferença entre eles é o tamanho do \textit{payload};
         \item Como qualquer outro protocolo de comunicação o MQTT possui diversos termos e características associadas, como a segurança, a definição dos \textit{endpoints}\footnote{\textbf{endpoints} - Pontos de extremidade. Terminais de conexão entre uma API e o cliente.}, o endereçamento, tipo de dado trafegado, entre outros.
     \end{itemize}
 
@@ -171,6 +172,8 @@
 \begin{frame}{Elementos de \textit{Hardware}}{O microcontrolador ESP8266}
     \begin{itemize}
         \item Rapidamente se tornou popular como um microcontrolador autônomo devido ao seu baixo custo de mercado;
+        \item Integração com a plataforma \textit{Arduino};
+        \item Criação de textit{kits} de desenvolvimento.
     \end{itemize}
 
 \end{frame}
@@ -196,13 +199,289 @@
             \vspace*{-0.5cm}
             \caption*{\tiny{Fonte: filipeflop.com, 2020}}
         \end{minipage}
-        \label{fig:esp12}
     \end{figure}
 
 \end{frame}
 
-\begin{frame}{Fundamentação Teórica}{Elementos de \textit{Firmware}}
+\begin{frame}{Elementos de \textit{Hardware}}{O microcontrolador ESP8266}
+    \vspace*{-0.4cm}
+    \begin{figure}[!ht]
+        \centering
+        \hspace*{0.1cm}
+        \begin{minipage}{0.5\linewidth}
+            \centering
+            \caption{Wemos D1 com ESP12-S}
+            \includegraphics[width=0.4\textwidth]{figuras/ESP-12S-wemos.png}
+            \label{fig:wemosesp12s}
+            \caption*{\tiny{Fonte: filipeflop.com, 2020}}
+        \end{minipage}\hfill
+        \begin{minipage}{0.5\linewidth}
+            \centering
+            \caption{Nodemcu com ESP12-E}
+            \hspace*{0.5cm}
+            \includegraphics[width=0.4\textwidth]{figuras/ESP-12E-nodemcu.png}
+            \label{fig:nodemcuesp12e}
+            \vspace*{-0.5cm}
+            \caption*{\tiny{Fonte: filipeflop.com, 2020}}
+        \end{minipage}
+    \end{figure}
+
 \end{frame}
 
-\begin{frame}{Fundamentação Teórica}{Elementos de \textit{Software}}
+\begin{frame}{Elementos de \textit{Hardware}}{A Raspberry Pi Zero W}
+    \begin{figure}[H]
+        \centering
+        \caption{Vista superior da \textit{Raspberry Pi Zero W}}
+        \includegraphics[width=0.2\textwidth, angle = 90]{figuras/rasp_zerow.png}
+        \caption*{\tiny{sparkfun, 2020}}
+        \label{fig:rasppizerow}
+    \end{figure} 
+
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Hardware}}{A Raspberry Pi Zero W}
+    \begin{itemize}
+        \item Compacta, ficando no meio termo entre as fazes de prototipação e aplicação;
+        \item Possui conectividade \textit{Wi-Fi} e \textit{Bluetooth};
+        \item Microprocessador \textit{ARM BCM2835} de \textit{1GHz}, memória \textit{RAM} de \textit{512MB};
+        \item Ideal para rodar aplicações como um \textit{Broker MQTT};
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Hardware}}{As fontes de alimentação DC}
+    \begin{itemize}
+        \item Dois tipos de fontes chaveadas: de \textit{12V/20A} para o módulo \textbf{CCM} e \textit{12V/10A} para o módulo \textbf{TCM}.
+    \end{itemize}
+
+    \begin{figure}[H]
+        \centering
+        \caption{Vista superior da fonte}
+        \includegraphics[width=0.2\textwidth]{figuras/fonte_chaveada.jpg}
+        \caption*{\tiny{amazon, 2020}}
+        \label{fig:fontechaveada}
+    \end{figure} 
+
+\end{frame}
+
+
+\begin{frame}{Elementos de \textit{Hardware}}{A motobomba}
+    \begin{itemize}
+        \item Trabalha com fontes de alimentação de correntes contínuas (\textit{DC});
+        \item Opera a \textit{12V}, com potência máxima de \textit{80W};
+        \item Capacidade de exercer uma vazão de \textit{5,5L/min} com ganho de elevação de no máximo 40\textit{m}.
+    \end{itemize}
+
+    \begin{figure}[H]
+        \centering
+        \caption{Bomba d'água \textit{DC}}
+        \includegraphics[width=0.2\textwidth]{figuras/bomba.jpeg}
+        \caption*{\tiny{ENERGIA TOTAL, 2020}}
+        \label{fig:bomba}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Hardware}}{O sensor ultrassônico}
+    \begin{itemize}
+        \item {É um instrumento que mede a distância até um objeto usando ondas sonoras de frequência acima do alcance da audição humana;}
+        \item {Usa um transdutor para enviar e receber pulsos ultrassônicos os quais são utilizados para medição de distância através de lapsos temporais;}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Hardware}}{O sensor ultrassônico}
+    \begin{equation}
+        d = \frac{\Delta t \cdot v}{2}
+        \end{equation}
+        \\
+        \begin{itemize}
+            
+            \item $d$ é a distância;
+            \item $\Delta t$ é a diferença entre o tempo de emissão e chegada da onda;
+            \item  $v$ é a velocidade do som (tomada como $340m/s$). \\
+        \end{itemize}
+
+        \begin{figure}[H]
+            \centering
+            \caption{Representação do funcionamento de um sensor ultrassônico}
+            \includegraphics[width=0.3\textwidth]{figuras/ultrassonico_operacao.png}
+            \caption*{\tiny{Maxbotix, 2021}}
+            \label{fig:operacao_ultrassonico}
+        \end{figure}
+        
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Hardware}}{O sensor ultrassônico}
+  
+\begin{figure}[H]
+	\centering
+	\caption{Sensor ultrassônico JSN-SR04T.}
+	\includegraphics[width=0.4\textwidth]{figuras/sensor_ultra.jpg}
+	\caption*{\tiny{usinainfo.com}, 2020}
+	\label{fig:sensor_ultra}
+\end{figure}
+        
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Hardware}}{O sensor ultrassônico}
+  \begin{itemize}
+      \item Módulo de apenas quatro pinos: \textit{5V} (VCC), \textit{Trig (RX)}, \textit{Echo (TX)} e \textit{GND};
+      \item Possui três modos de operação sendo selecionados pelo valor do resistor (R27);
+      \item \textbf{Modo de operação 3 (R27 $= 120k\Omega$)}: neste modo, o microcontrolador entra em modo de baixo consumo e só envia os dados de leituras ao ser acionado pelo pino RX. Se a mensagem de acionamento for 0X55, a leitura de distância é enviada pelo TX da mesma forma do modo anterior.
+  \end{itemize}    
+
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Hardware}}{A válvula solenoide}
+    \begin{figure}[H]
+        \centering
+        \caption{Válvula solenoide}
+        \includegraphics[width=0.2\textwidth]{figuras/solenoide.jpg}
+        \caption*{\tiny{Nascimetal, 2021}}
+        \label{fig:solenoide}
+    \end{figure}
+
+    \begin{itemize}
+        \item Tensão de operação em torno de \textit{12V} \textit{DC}, consumo médio, quando ativada, de \textit{500mA};
+        \item Pressão de operação à $8,0 kgf/cm^2$ com vazão máxima de $40L/min$ e vida útil de 50 mil operações.
+    \end{itemize}    
+  
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Hardware}}{A chave de nível tipo boia}
+    \begin{figure}[H]
+        \centering
+        \caption{Chave de nível \textit{RF-0H21D}}
+        \includegraphics[width=0.3\textwidth]{figuras/chave_boia.png}
+        \caption*{\tiny{smartkits, 2020}}
+        \label{fig:chaveboia}
+    \end{figure}
+
+    \begin{itemize}
+        \item Utilizada para fomentar a redundância do sistema, caso aconteçam falhas na medição do sensor ultrassônico.
+    \end{itemize}    
+  
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Hardware}}{O sensor de corrente}
+    \begin{figure}[H]
+        \centering
+        \caption{Representação gráfica do sensor \textit{ACS712}}
+        \includegraphics[width=0.15\textwidth]{figuras/ACS712.png}
+        \caption*{\tiny{Alegro, 2020}}
+        \label{fig:acs712}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \caption{Aplicação típica do\textit{ACS712}}
+        \hspace*{0.1cm}
+        \includegraphics[width=0.25\textwidth]{figuras/ACS712_typical.png}
+        \caption*{\tiny{Alegro, 2020}}
+        \label{fig:acs712_typical}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}{}
+    \begin{equation}
+        V_H = R_H\left ( \frac{I\cdot B}{t} \right)
+        \end{equation}
+        
+        \begin{itemize}
+            
+            \item $V_H$ é a tensão em Volts;
+            \item $R_H$ é o coeficiente do efeito \textit{Hall};
+            \item  $I$ é o fluxo de corrente em Amperes;
+            \item $t$ é espessura do sensor em milímetros;
+            \item $B$ é a densidade do fluxo magnético em teslas; \ \\
+        \end{itemize}
+
+        \begin{figure}[H]
+            \centering
+            \caption{Comportamento da tensão de saída em relacão ao fluxo magnético de um sensor \textit{Hall}.}
+            \includegraphics[width=0.3\textwidth]{figuras/grafico_hall.jpg}
+            \caption*{\tiny{Eletronics Tutorials, 2021}}
+            \label{fig:efeito_hall}
+        \end{figure} 
+
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Hardware}}{Kicad}
+    \begin{figure}[H]
+        \centering
+        \caption{Exemplo de \textit{PCB Design} utilizando \textit{Kicad}}
+        \includegraphics[width=0.5\textwidth]{figuras/kicad_pcbnew.png}
+        \caption*{\tiny{kicad.org, 2021}}
+        \label{fig:kicad_pcbnew}
+    \end{figure} 
+
+\end{frame}
+
+
+\begin{frame}{Elementos de \textit{Firmware}}{PlatformIO}
+
+
+\begin{figure}[H]
+	\centering
+	\caption{Extensão do \textit{PlatformIO} rodando no \textit{Visual Studio Code}}
+	\includegraphics[width=0.5\textwidth]{figuras/platformio.jpg}
+	\caption*{\tiny{Própria, 2021}}
+	\label{fig:platformio}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Firmware}}{A distribuição DietPi}
+    \begin{figure}[H]
+        \centering
+        \caption{Catálogo com algumas de placas que suportam a distribuição DietPi.}
+        \includegraphics[width=0.5\textwidth]{figuras/dietpi.jpg}
+        \caption*{\tiny{dietpi.com, 2021}}
+        \label{fig:dietpi}
+    \end{figure} 
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Software}}{Node.js}
+
+    \begin{itemize}
+        \item É um ambiente de execução (\textit{runtime}) \textit{Javascript} possibilitando criar aplicações sem depender de um \textit{browser} para a execução;
+        \item Possível empregar o \textit{Javascript} para executar comandos em terminal assim como utilizá-lo para programar qualquer tipo de aplicação \textit{backend} com auxílio de inúmeras bibliotecas desenvolvidas;
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Elementos de \textit{Software}}{Electron.js}
+
+    \begin{figure}[H]
+        \centering
+        \caption{Aplicações que utilizam \textit{Electron}}
+        \includegraphics[width=1.0\textwidth]{figuras/electron_apps.png}
+        \caption*{\tiny{Adaptado (electronjs.org, 2020)}}
+        \label{fig:electron_apps}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Software}}{Electron.js}
+    Uma aplicação \textit{Electron} tem como base os seguintes arquivos:
+
+\begin{itemize}
+	\item \textbf{\textit{package.json}}: Aponta para o arquivo principal do aplicativo e lista seus detalhes e dependências;
+	\item \textbf{\textit{main.js}}: Inicia a aplicação e cria a janela de visualização possibilitando diversas configurações; 
+	\item \textbf{\textit{index.html}}: O ponto de partida para a renderização.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Elementos de \textit{Software}}{React}
+
+    \begin{figure}[H]
+        \centering
+        \caption{Exemplo de componente \textit{React}}
+        \includegraphics[width=0.8\textwidth]{figuras/exemplo_react.jpg}
+        \caption*{\tiny{Adaptado (reactjs.org, 2021)}}
+        \label{fig:react_code}
+    \end{figure}
+
 \end{frame}
