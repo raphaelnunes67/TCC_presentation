@@ -309,6 +309,8 @@ INPUT C:\Users\Raphael\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ifoddpage\ifo
 INPUT C:\Users\Raphael\AppData\Local\Programs\MiKTeX 2.9\tex\latex\varwidth\varwidth.sty
 INPUT C:\Users\Raphael\AppData\Local\Programs\MiKTeX 2.9\tex\latex\varwidth\varwidth.sty
 INPUT C:\Users\Raphael\AppData\Local\Programs\MiKTeX 2.9\tex\latex\varwidth\varwidth.sty
+INPUT C:\Users\Raphael\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\subcaption.sty
+INPUT C:\Users\Raphael\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\subcaption.sty
 INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\main.aux
 INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\main.aux
 OUTPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\main.aux
@@ -434,6 +436,16 @@ INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\esp8266ex.jpg
 INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\esp8266ex.jpg
 INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\esp8266ex.jpg
 INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\esp8266ex.jpg
+INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\ESP-12S.png
+INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\ESP-12S.png
+INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\ESP-12S.png
+INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\ESP-12S.png
+INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\ESP-12S.png
+INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\ESP-12E.png
+INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\ESP-12E.png
+INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\ESP-12E.png
+INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\ESP-12E.png
+INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\figuras\ESP-12E.png
 INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\main.toc
 INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\main.toc
 INPUT e:\Academic\UEA\10°\TCC II\TCC_presentation\files\metodologia.tex
