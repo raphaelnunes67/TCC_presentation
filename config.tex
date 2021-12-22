@@ -6,7 +6,28 @@
 \usepackage{caption}
 \usepackage{adjustbox}
 \usepackage{xcolor}
-\usepackage{subcaption}   
+\usepackage{subcaption} 
+
+\usepackage{listings}
+\lstset{
+  language=Java,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{jpurple}\bfseries,
+  stringstyle=\color{red},
+  commentstyle=\color{verde},
+  morecomment=[s][\color{blue}]{/**}{*/},
+  extendedchars=true,
+  showspaces=false,
+  showstringspaces=false,
+  numberstyle=\tiny,
+  breaklines=true,
+  backgroundcolor=\color{gray!10},
+  breakautoindent=true,
+  captionpos=b,
+  xleftmargin=0pt,
+  tabsize=4
+}
+
 \setbeamertemplate{caption}[numbered]
 \justifying
 \tolerance=1
